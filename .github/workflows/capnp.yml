@@ -16,7 +16,7 @@ jobs:
     - name: Install dependencies
       run: |
           sudo apt update
-          sudo apt install -y capnp
+          sudo apt install -y capnproto
     
     - name: Compile
       run: |
