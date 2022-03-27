@@ -20,5 +20,5 @@ jobs:
     
     - name: Compile
       run: |
-          capnp compile palliate.capnp
+          capnp compile palliate.capnp -ocapnp
       
