@@ -42,8 +42,9 @@ struct Connect{
 struct Response {
   code @0 :Status;
   address :union{
-    name @1 :Text;
-    ip @2 :IP;
+    none @1 :Void;
+    name @2 :Text;
+    ip @3 :IP;
   }
 
   enum Status{
