@@ -5,8 +5,9 @@
 # Exchange capabilities during handshake
 # the other party has to respond with Capabilities
 struct Handshake {
-  capabilities @0 :List(Capability);
-  neighbors @1 :List(Neighbor);
+  uuid @0 :Text;
+  capabilities @1 :List(Capability);
+  neighbors @2 :List(Neighbor);
   
   struct Capability{
     plugin @0 :Text;
@@ -16,8 +17,8 @@ struct Handshake {
 
   # enumerate other instances we could route to
   struct Neighbor{
-    name @0 :Text;
-    transport @1 :Transport;
+    uuid  @0 :Text;
+    route @1 :Route;
   }
 }
 
@@ -32,20 +33,12 @@ struct Serve{
 # plugin at the specified address
 struct Connect{
   plugin @0 :Text;
-  transport @1 :Transport;
-  address :union{
-    name @2 :Text;
-    ip @3 :IP;
-  }
+  route @1 :Route;
 }
 
 struct Response {
   code @0 :Status;
-  address :union{
-    none @1 :Void;
-    name @2 :Text;
-    ip @3 :IP;
-  }
+  route @1 :Route;
 
   enum Status{
     ok @0;
@@ -53,15 +46,19 @@ struct Response {
   }
 }
 
-struct Test {
-  number @0:UInt32;
-}
-
-
 ### Meta definitions ###
 enum Transport{
   tcp @0;
   shm @1;
+}
+
+struct Route{
+  type @0 :Transport;
+  address :union {
+    none @1 :Void;
+    uuid @2 :Text;
+    ip   @3 :IP;
+  }
 }
 
 struct IP{
@@ -74,10 +71,9 @@ struct IP{
 struct Packet {
   data :union{
     empty   @0:Void;
-    test  @1:Test;
-    handshake @2:Handshake;
-    serve @3:Serve;
-    connect @4:Connect;
-    response @5:Response;
+    handshake @1:Handshake;
+    serve @2:Serve;
+    connect @3:Connect;
+    response @4:Response;
   }
 }
