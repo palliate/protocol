@@ -48,8 +48,9 @@ struct Response {
 
 ### Meta definitions ###
 enum Transport{
-  tcp @0;
-  shm @1;
+  none @0;
+  tcp @1;
+  shm @2;
 }
 
 struct Route{
