@@ -2,10 +2,12 @@
 
 struct Message {
   severity    @0:Severity;
-  threadId    @1:Text;
+  threadId    @1:UInt64;
   threadName  @2:Text;
   location    @3:Text;
-  text        @4:Text;
+  function    @4:Text;
+  line        @5:UInt32;
+  text        @6:Text;
 }
 
 ### Meta definitions ###
