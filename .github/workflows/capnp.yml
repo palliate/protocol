@@ -20,5 +20,5 @@ jobs:
     
     - name: Compile
       run: |
-          capnp compile app.capnp -ocapnp
+          capnp compile app.capnp ui.capnp input.capnp debug.capnp -ocapnp
       
