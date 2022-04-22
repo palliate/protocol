@@ -1,4 +1,4 @@
-@0xf4a0d047ce013cbc;
+@0x9d40916e32e95d50;
 
 struct Mouse {
   visible @0:Bool;
@@ -58,7 +58,7 @@ enum MouseKey {
 }
 
 ### Outer Wrapper ###
-struct Packet {
+struct Input {
   data :union{
     empty       @0:Void;
     mouse       @1:Mouse;

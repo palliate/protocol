@@ -1,4 +1,4 @@
-@0xa82c5469ed01efbd;
+@0xcb9c2347b57a29ee;
 
 ### Message definitions ###
 struct Create {
@@ -42,7 +42,7 @@ struct Icon {
 using WindowHandle = UInt32;
 
 ### Outer Wrapper ###
-struct Packet {
+struct UI {
   handle      @0:WindowHandle = 0;
 
   data :union{

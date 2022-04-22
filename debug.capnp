@@ -1,4 +1,4 @@
-@0xb378089e01736fc9;
+@0xf2bc23c56f3f621f;
 
 struct Message {
   severity    @0:Severity;
@@ -6,10 +6,6 @@ struct Message {
   threadName  @2:Text;
   location    @3:Text;
   text        @4:Text;
-}
-
-struct MinLevel {
-  severity    @0:Severity;
 }
 
 ### Meta definitions ###
@@ -22,10 +18,9 @@ enum Severity {
 }
 
 ### Outer Wrapper ###
-struct Packet {
+struct Debug {
   data :union{
     empty       @0:Void;
     message     @1:Message;
-    minLevel    @2:MinLevel;
   }
 }

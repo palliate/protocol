@@ -1,5 +1,4 @@
-@0x8a11b22ba4861bdf;
-
+@0x8e0fc74064f72400;
 
 ### Message definitions ###
 # Exchange capabilities during handshake
@@ -69,7 +68,7 @@ struct IP{
 
 
 ### Outer Wrapper ###
-struct Packet {
+struct App {
   data :union{
     empty   @0:Void;
     handshake @1:Handshake;
