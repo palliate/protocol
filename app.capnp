@@ -1,13 +1,12 @@
-@0x8e0fc74064f72400;
+@0xaa881ba7cfa22169;
 
 ### Message definitions ###
 # Exchange capabilities during handshake
 # the other party has to respond with Capabilities
 struct Handshake {
-  uuid @0 :Text;
-  capabilities @1 :List(Capability);
-  neighbors @2 :List(Neighbor);
-  
+  capabilities @0:List(Capability);
+  neighbors    @1:List(Neighbor);
+
   struct Capability{
     plugin @0 :Text;
     server @1 :Bool;
@@ -16,7 +15,7 @@ struct Handshake {
 
   # enumerate other instances we could route to
   struct Neighbor{
-    uuid  @0 :Text;
+    uuid  @0 :Data;
     route @1 :Route;
   }
 }
@@ -56,7 +55,7 @@ struct Route{
   type @0 :Transport;
   address :union {
     none @1 :Void;
-    uuid @2 :Text;
+    uuid @2 :Data;
     ip   @3 :IP;
   }
 }
@@ -69,11 +68,12 @@ struct IP{
 
 ### Outer Wrapper ###
 struct App {
+  uuid          @0:UInt64;
   data :union{
-    empty   @0:Void;
-    handshake @1:Handshake;
-    serve @2:Serve;
-    connect @3:Connect;
-    response @4:Response;
+    empty       @1:Void;
+    handshake   @2:Handshake;
+    serve       @3:Serve;
+    connect     @4:Connect;
+    response    @5:Response;
   }
 }

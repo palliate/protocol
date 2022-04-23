@@ -21,8 +21,9 @@ enum Severity {
 
 ### Outer Wrapper ###
 struct Debug {
+  uuid          @0:UInt64;
   data :union{
-    empty       @0:Void;
-    message     @1:Message;
+    empty       @1:Void;
+    message     @2:Message;
   }
 }

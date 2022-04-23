@@ -43,16 +43,17 @@ using WindowHandle = UInt32;
 
 ### Outer Wrapper ###
 struct UI {
-  handle      @0:WindowHandle = 0;
+  uuid        @0:UInt64;
+  handle      @1:WindowHandle = 0;
 
   data :union{
-    empty     @1:Void;
-    create    @2:Create;
-    close     @3:Close;
-    flags     @4:Flags;
-    attention @5:Attention;
-    position  @6:Position;
-    title     @7:Title;
-    icon      @8:Icon;
+    empty     @2:Void;
+    create    @3:Create;
+    close     @4:Close;
+    flags     @5:Flags;
+    attention @6:Attention;
+    position  @7:Position;
+    title     @8:Title;
+    icon      @9:Icon;
   }
 }

@@ -59,13 +59,14 @@ enum MouseKey {
 
 ### Outer Wrapper ###
 struct Input {
+  uuid          @0:UInt64;
   data :union{
-    empty       @0:Void;
-    mouse       @1:Mouse;
-    mouseButton @2:MouseButton;
-    cursor      @3:Cursor;
-    keyboard    @4:Keyboard;
-    scroll      @5:Scroll;
-    clipboard   @6:Clipboard;
+    empty       @1:Void;
+    mouse       @2:Mouse;
+    mouseButton @3:MouseButton;
+    cursor      @4:Cursor;
+    keyboard    @5:Keyboard;
+    scroll      @6:Scroll;
+    clipboard   @7:Clipboard;
   }
 }
