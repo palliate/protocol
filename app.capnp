@@ -66,14 +66,8 @@ struct IP{
 }
 
 
-### Outer Wrapper ###
-struct App {
-  uuid          @0:UInt64;
-  data :union{
-    empty       @1:Void;
-    handshake   @2:Handshake;
-    serve       @3:Serve;
-    connect     @4:Connect;
-    response    @5:Response;
-  }
+interface App {
+  handshake @0(client :Handshake) -> (server :Handshake);
+  serve     @1(service :Serve)    -> (response :Response);
+  connect   @2(service :Connect)  -> (response :Response);
 }
