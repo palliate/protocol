@@ -1,11 +1,12 @@
-@0xaa881ba7cfa22169;
+@0x957fac5f66577c33;
 
 ### Message definitions ###
 # Exchange capabilities during handshake
 # the other party has to respond with Capabilities
 struct Handshake {
-  capabilities @0:List(Capability);
-  neighbors    @1:List(Neighbor);
+  uuid         @0:UInt64;
+  capabilities @1:List(Capability);
+  neighbors    @2:List(Neighbor);
 
   struct Capability{
     plugin @0 :Text;
