@@ -45,6 +45,12 @@ struct Response {
   }
 }
 
+struct Info{
+  endpoints   @0 :List(GenericInfo);
+  plugins     @1 :List(GenericInfo);
+  #TODO fill with more runtime info
+}
+
 ### Meta definitions ###
 enum Transport{
   none @0;
@@ -66,9 +72,14 @@ struct IP{
   port @1 :UInt16;
 }
 
+struct GenericInfo {
+  name   @0 :Text;
+  active @1 :Bool;
+}
 
 interface App {
   handshake @0(client :Handshake) -> (server :Handshake);
   serve     @1(service :Serve)    -> (response :Response);
   connect   @2(service :Connect)  -> (response :Response);
+  status    @3()                  -> (info :Info);
 }
