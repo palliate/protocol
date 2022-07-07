@@ -45,7 +45,7 @@ struct Response {
   }
 }
 
-struct Info{
+struct Info {
   endpoints   @0 :List(GenericInfo);
   plugins     @1 :List(GenericInfo);
   #TODO fill with more runtime info
