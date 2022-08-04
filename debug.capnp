@@ -27,7 +27,3 @@ struct Debug {
     message     @2:Message;
   }
 }
-
-interface DataChannel {
-  authenticate @0(token :UInt64) -> (success :Bool);
-}
